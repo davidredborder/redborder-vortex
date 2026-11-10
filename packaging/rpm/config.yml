@@ -1,0 +1,17 @@
+---
+# redborder-vortex cluster configuration
+path.settings: "/etc/logstash"
+pipelines.yml: "/etc/logstash/pipelines.yml"
+ipc.socket: "/run/redborder-vortex/redborder-vortex.sock"
+plugins.dir: "/usr/share/redborder-vortex/plugins"
+
+# Redis L2 State Backend & Distributed Lock (port 26379 on redBorder NG)
+redis.url: "redis://redis.service:26379"
+# redis.password: ""
+
+# PostgreSQL Metadata Sync (sensors, access points, scrambles)
+postgres.host: "master.postgresql.service"
+postgres.port: 5432
+postgres.database: "redborder"
+postgres.user: "redborder"
+# postgres.password: ""

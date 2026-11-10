@@ -1,0 +1,33 @@
+name: cargo-test
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'main'
+  pull_request:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          if command -v sudo >/dev/null 2>&1; then SUDO="sudo"; else SUDO=""; fi
+          $SUDO apt-get update && $SUDO apt-get install -y cmake build-essential libssl-dev libcurl4-openssl-dev python3-dev
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Cargo Check
+        run: cargo check
+
+      - name: Run Tests
+        run: cargo test

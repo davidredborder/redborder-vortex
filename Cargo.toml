@@ -1,0 +1,25 @@
+[package]
+name = "redborder-vortex"
+version = "1.0.0"
+edition = "2021"
+license = "AGPL-3.0"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9"
+dashmap = "6.0"
+regex = "1.10"
+ipnet = "2.9"
+sha2 = "0.10"
+hex = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
+anyhow = "1.0"
+thiserror = "1.0"
+pyo3 = { version = "0.22", features = ["auto-initialize"] }
+redis = "0.27"
+tokio = { version = "1.38", features = ["full"] }
+tokio-postgres = "0.7"
+rdkafka = { version = "0.39.0", default-features = false, features = ["cmake-build", "tokio", "libz"] }
+maxminddb = "0.24"
+uuid = { version = "1.8", features = ["v4"] }
