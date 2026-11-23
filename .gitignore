@@ -1,0 +1,38 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+Cargo.lock.orig
+
+# RPM packaging & mock build artifacts
+/packaging/rpm/SOURCES/
+/packaging/rpm/pkgs/
+/packaging/rpm/available_pkgs
+/packaging/rpm/installed_pkgs
+*.src.rpm
+*.tar.gz
+
+# Build & runtime logs
+*.log
+build.log
+root.log
+state.log
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Sockets and runtime IPC
+*.sock
+/tmp/
+
+# SBOM files
+redborder-vortex-sbom.spdx.json
+
+# IDE and OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store

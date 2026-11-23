@@ -1,0 +1,29 @@
+[Unit]
+Description=redBorder Vortex high-throughput telemetry and log pipeline engine
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/redborder-vortex --path.settings /etc/logstash
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+User=redborder-vortex
+Group=redborder-vortex
+RuntimeDirectory=redborder-vortex
+
+# Hardening / Sandboxing Measures
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectControlGroups=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+CapabilityBoundingSet=
+SystemCallFilter=@system-service
+
+[Install]
+WantedBy=multi-user.target
